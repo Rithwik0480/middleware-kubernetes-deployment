@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: svc-auth
+  labels:
+    app: svc-auth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: svc-auth
+  template:
+    metadata:
+      labels:
+        app: svc-auth
+    spec:
+      containers:
+      - name: svc-auth
+        image: dhiway/middleware:svc-auth
+        env:
+        - name: RUST_LOG
+          value: "info"
+        ports:
+        - containerPort: 50051
+        - containerPort: 5000
+        args: ["/app/config/prod.yaml"]
