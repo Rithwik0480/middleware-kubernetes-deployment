@@ -1,0 +1,4 @@
+resources:
+- demo-deploy.yaml
+- svc-auth-deployment.yaml
+- svc-http-deployment.yaml
