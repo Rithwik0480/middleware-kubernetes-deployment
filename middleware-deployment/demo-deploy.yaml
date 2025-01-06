@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: login-app
-        image: rithwwik/login-app:87cdbde
+        image: rithwwik/login-app
         ports:
         - containerPort: 3005
 ---
