@@ -1,3 +1,3 @@
 kustomize:
   images:
-  - rithwwik/login-app:v0.0.3
+  - rithwwik/login-app:v0.0.4
