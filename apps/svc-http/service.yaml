@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-http
+  labels:
+    app: svc-http
+spec:
+  selector:
+    app: svc-http
+  ports:
+    - protocol: TCP
+      port: 5001   
+      targetPort: 5001
+  type: ClusterIP

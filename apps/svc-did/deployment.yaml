@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: svc-did
+  labels:
+    app: svc-did
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: svc-did
+  template:
+    metadata:
+      labels:
+        app: svc-did
+    spec:
+      containers:
+        - name: svc-did
+          image: rithwwik/middleware-svc-did:25.0.1
+          ports:
+            - containerPort: 50053
+          command: ["/usr/local/bin/svc-did"]    
+          args: ["/app/config/prod.yaml"]

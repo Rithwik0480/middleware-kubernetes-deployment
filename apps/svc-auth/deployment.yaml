@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: svc-auth
+  labels:
+    app: svc-auth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: svc-auth
+  template:
+    metadata:
+      labels:
+        app: svc-auth
+    spec:
+      containers:
+      - name: svc-auth
+        image: dhiway/middleware:svc-auth
+        ports:
+          - containerPort: 50051
+        #command: ["/usr/local/bin/svc-auth"] 
+        args: ["/app/config/local.yaml"]

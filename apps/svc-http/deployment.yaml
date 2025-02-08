@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: svc-http
+  labels:
+    app: svc-http
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: svc-http
+  template:
+    metadata:
+      labels:
+        app: svc-http
+    spec:
+      containers:
+      - name: svc-http
+        image: dhiway/middleware:svc-http
+        env:
+        - name: RUST_LOG
+          value: "info"
+        ports:
+        - containerPort: 5001
+        args: ["/app/config/prod.yaml"]

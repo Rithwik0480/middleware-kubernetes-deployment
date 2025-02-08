@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-qr
+  labels:
+    app: svc-qr
+spec:
+  selector:
+    app: svc-qr
+  ports:
+    - name: grpc-port
+      protocol: TCP
+      port: 50054
+      targetPort: 50054
+  type: ClusterIP

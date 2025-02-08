@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: svc-qr
+  labels:
+    app: svc-qr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: svc-qr
+  template:
+    metadata:
+      labels:
+        app: svc-qr
+    spec:
+      containers:
+        - name: svc-qr
+          image: rithwwik/middleware-svc-qr:25.0.1
+          ports:
+            - containerPort: 50054
+          command: ["/usr/local/bin/svc-qr"]   
+          args: ["/app/config/prod.yaml"]

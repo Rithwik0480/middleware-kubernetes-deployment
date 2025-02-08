@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: svc-cord
+  labels:
+    app: svc-cord
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: svc-cord
+  template:
+    metadata:
+      labels:
+        app: svc-cord
+    spec:
+      containers:
+        - name: svc-cord
+          image: rithwwik/middleware-svc-cord:25.0.1
+          ports:
+            - containerPort: 50052
+          args: ["/app/config/prod.yaml"]
